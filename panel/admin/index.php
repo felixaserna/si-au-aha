@@ -11,6 +11,17 @@
 
     // var_dump($resultado);
 
+    $registros_por_pagina = 5;
+    
+    // Contar registros de la base de datos
+    $total_registros_db = $sentencia->rowCount();
+
+    // echo $total_registros_db;
+    
+    $paginas = $total_registros_db/$registros_por_pagina;
+    $paginas = ceil($paginas);
+    echo $paginas;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +64,7 @@
 
                 <div class="card-body">
                     <div class="mb-3">
-                        <a href="agregar.php" type="button" class="btn btn-success btn-sm">
+                        <a href="agregar.php" type="button" class="btn btn-success">
                             Nuevo registro
                         </a>
                     </div>
@@ -94,19 +105,21 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
                             </li>
+                            
+                            <?php for($i=0; $i<$paginas; $i++): ?>
+                            
                             <li class="page-item">
-                                <a class="page-link" href="#">1</a>
+                                <a class="page-link" href="#">
+                                    <?php echo $i+1 ?>
+                                </a>
                             </li>
+                            
+                            <?php endfor ?>
+
                             <li class="page-item">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
+                                <a class="page-link" href="#">Siguiente</a>
                             </li>
                         </ul>
                     </nav>
