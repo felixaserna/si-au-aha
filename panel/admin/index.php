@@ -20,7 +20,7 @@
     
     $paginas = $total_registros_db/$registros_por_pagina;
     $paginas = ceil($paginas);
-    echo $paginas;
+    //  class="font-weight-light"echo $paginas;
 
 ?>
 <!DOCTYPE html>
@@ -72,30 +72,30 @@
                     <table class="table table-hover table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th class="">ID</th>
-                                <th class="">Nombre</th>
-                                <th class="">Sede</th>
-                                <th class="">Fecha del curso</th>
-                                <th class="">Factura</th>
-                                <th class="">Proveedor</th>
-                                <th class="">Fecha de compra</th>
-                                <th>Editar</th>
-                                <th>Eliminar</th>
+                                <th class="font-weight-light">ID</th>
+                                <th class="font-weight-light">Nombre</th>
+                                <th class="font-weight-light">Sede</th>
+                                <th class="font-weight-light">Fecha del curso</th>
+                                <th class="font-weight-light">Factura</th>
+                                <th class="font-weight-light">Proveedor</th>
+                                <th class="font-weight-light">Fecha de compra</th>
+                                <th class="font-weight-light">Editar</th>
+                                <th class="font-weight-light">Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             <?php foreach ($resultado as $articulo): ?>
                             <tr>
-                                <td><?php echo $articulo['id'] ?></td>
-                                <td><?php echo $articulo['articulo'] ?></td>
-                                <td><?php echo $articulo['articulo'] ?></td>
-                                <td><?php echo $articulo['articulo'] ?></td>
-                                <td><?php echo $articulo['articulo'] ?></td>
-                                <td><?php echo $articulo['articulo'] ?></td>
-                                <td><?php echo $articulo['articulo'] ?></td>
-                                <td><a href="" class="btn btn-warning btn-block btn-sm">Editar</a></td>
-                                <td><a href="" class="btn btn-danger btn-block btn-sm">Eliminar</a></td>
+                                <td class="font-weight-light"><?php echo $articulo['id'] ?></td>
+                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
+                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
+                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
+                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
+                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
+                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
+                                <td class="font-weight-light"><a href="" class="btn btn-warning btn-block btn-sm">Editar</a></td>
+                                <td class="font-weight-light"><a href="" class="btn btn-danger btn-block btn-sm">Eliminar</a></td>
                             </tr>
                             <?php endforeach ?>
 
@@ -104,22 +104,22 @@
 
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                            <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="index.php?pagina=<?php echo $_GET['pagina']-1 ?>">Anterior</a>
                             </li>
                             
                             <?php for($i=0; $i<$paginas; $i++): ?>
                             
-                            <li class="page-item">
-                                <a class="page-link" href="#">
+                            <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active':  '' ?>">
+                                <a class="page-link" href="index.php?pagina=<?php echo $i+1 ?>">
                                     <?php echo $i+1 ?>
                                 </a>
                             </li>
                             
                             <?php endfor ?>
 
-                            <li class="page-item">
-                                <a class="page-link" href="#">Siguiente</a>
+                            <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">
+                                <a class="page-link" href="index.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a>
                             </li>
                         </ul>
                     </nav>
