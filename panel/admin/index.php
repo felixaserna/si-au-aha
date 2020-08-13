@@ -30,7 +30,7 @@
         </div>
     </nav>
 
-    <section class="mt-4">
+    <section class="my-4">
         <div class="container">
             <div class="card">
                 <div class="card-header text-center h4 font-weight-light">
@@ -38,79 +38,40 @@
                 </div>
 
                 <div class="card-body">
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#AgregarRegistro">
-                        Nuevo registro
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="AgregarRegistro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Nuevo registro</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="" method="post">
-                                    <div class="form-row">
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Nombre(s):</label>
-                                            <input type="text" name="" id="" class="form-control">
-                                        </div>
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Apellido paterno:</label>
-                                            <input type="text" name="" id="" class="form-control">
-                                        </div>
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Apellido materno:</label>
-                                            <input type="text" name="" id="" class="form-control">
-                                        </div>
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Sede:</label>
-                                            <input type="text" name="" id="" class="form-control">
-                                        </div>
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Fecha:</label>
-                                            <input type="date" name="" id="" class="form-control">
-                                        </div>
-
-                                        <div class="form-group col-md-12">
-                                            <div class="custom-file">
-                                                <label for="" class="">Factura:</label>
-                                                <input type="file" class="form-control-file" id="" name="">
-                                                <small class="form-text text-muted">
-                                                    Solo puede archivos PDF
-                                                </small>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Proveedor:</label>
-                                            <input type="text" name="" id="" class="form-control">
-                                        </div>
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Fecha de compra:</label>
-                                            <input type="date" name="" id="" class="form-control">
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                            </div>
-                        </div>
+                    <div class="mb-3">
+                        <a href="agregar.php" type="button" class="btn btn-success btn-sm">
+                            Nuevo registro
+                        </a>
                     </div>
+
+                    <table class="table table-hover table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="">ID</th>
+                                <th class="">Nombre</th>
+                                <th class="">Sede</th>
+                                <th class="">Fecha</th>
+                                <th class="">Factura</th>
+                                <th class="">Proveedor</th>
+                                <th class="">Fecha de compra</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
 
                 </div>
             </div>
