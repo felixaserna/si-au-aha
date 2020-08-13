@@ -69,6 +69,23 @@
                         </a>
                     </div>
 
+                    <?php 
+                        if(!$_GET){
+                            header('Location:index.php?pagina=1');
+                        }
+
+                        $iniciar = ($_GET['pagina']-1)*$registros_por_pagina;
+                        // echo $iniciar;
+
+                        $sql_registros = 'SELECT * FROM articulos LIMIT :inicar,:nregistros';
+                        $sentencia_registros = $pdo->prepare($sql_registros);
+                        $sentencia_registros->bindParam(':inicar', $iniciar, PDO::PARAM_INT);
+                        $sentencia_registros->bindParam(':nregistros', $registros_por_pagina, PDO::PARAM_INT);
+                        $sentencia_registros->execute();
+
+                        $resultado_registros = $sentencia_registros->fetchAll();
+                    ?>
+
                     <table class="table table-hover table-striped">
                         <thead class="thead-dark">
                             <tr>
@@ -85,7 +102,7 @@
                         </thead>
                         <tbody>
 
-                            <?php foreach ($resultado as $articulo): ?>
+                            <?php foreach ($resultado_registros as $articulo): ?>
                             <tr>
                                 <td class="font-weight-light"><?php echo $articulo['id'] ?></td>
                                 <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
