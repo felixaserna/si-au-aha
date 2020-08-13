@@ -57,7 +57,7 @@
                                 <th class="">ID</th>
                                 <th class="">Nombre</th>
                                 <th class="">Sede</th>
-                                <th class="">Fecha</th>
+                                <th class="">Fecha del curso</th>
                                 <th class="">Factura</th>
                                 <th class="">Proveedor</th>
                                 <th class="">Fecha de compra</th>

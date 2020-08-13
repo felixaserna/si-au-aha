@@ -62,7 +62,7 @@
                         </div>
             
                         <div class="form-group col-md-12">
-                            <label for="">Fecha:</label>
+                            <label for="">Fecha del curso:</label>
                             <input type="date" name="" id="" class="form-control">
                         </div>
             
