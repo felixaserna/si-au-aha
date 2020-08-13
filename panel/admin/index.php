@@ -2,7 +2,7 @@
 
     include_once '../../config/config.php';
 
-    $sql = "SELECT * FROM "
+    $sql = "SELECT * FROM articulos";
 
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,7 @@
                         </thead>
                         <tbody>
 
-                            
+
 
                         </tbody>
                     </table>
