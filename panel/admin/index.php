@@ -4,6 +4,13 @@
 
     $sql = "SELECT * FROM articulos";
 
+    $sentencia = $pdo->prepare($sql);
+    $sentencia->execute();
+
+    $resultado = $sentencia->fetchAll();
+
+    // var_dump($resultado);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +74,19 @@
                         </thead>
                         <tbody>
 
-
+                            <?php foreach ($resultado as $articulo): ?>
+                            <tr>
+                                <td><?php echo $articulo['id'] ?></td>
+                                <td><?php echo $articulo['articulo'] ?></td>
+                                <td><?php echo $articulo['articulo'] ?></td>
+                                <td><?php echo $articulo['articulo'] ?></td>
+                                <td><?php echo $articulo['articulo'] ?></td>
+                                <td><?php echo $articulo['articulo'] ?></td>
+                                <td><?php echo $articulo['articulo'] ?></td>
+                                <td><a href="" class="btn btn-warning btn-block btn-sm">Editar</a></td>
+                                <td><a href="" class="btn btn-danger btn-block btn-sm">Eliminar</a></td>
+                            </tr>
+                            <?php endforeach ?>
 
                         </tbody>
                     </table>
