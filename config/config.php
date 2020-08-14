@@ -1,8 +1,13 @@
 <?php
 
+    $password = "";
+    $username = "root";
+    $bd = "si-au-aha";
+    $server = "localhost";
+
     try {
-        
-        $pdo = new PDO('mysql:host=localhost;dbname=si-au-aha', 'root', '');
+
+        $pdo = new PDO('mysql:host='. $server .';dbname=' . $bd, $username, $password);
         
         // echo 'Conectado';
     } catch (PDOException $e) {

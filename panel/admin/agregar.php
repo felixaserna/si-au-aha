@@ -38,7 +38,7 @@
             </div>
 
             <div class="card-body">
-                <form action="" method="post">
+                <form action="actions/add.php" method="post">
                     <div class="form-row">
             
                         <div class="form-group col-md-4">

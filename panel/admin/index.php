@@ -8,7 +8,7 @@
 
     include_once '../../config/config.php';
 
-    $sql = "SELECT * FROM articulos";
+    $sql = "SELECT * FROM registro_facturas";
 
     $sentencia = $pdo->prepare($sql);
     $sentencia->execute();
@@ -30,7 +30,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,7 +89,7 @@
                         $iniciar = ($_GET['pagina']-1)*$registros_por_pagina;
                         // echo $iniciar;
 
-                        $sql_registros = 'SELECT * FROM articulos LIMIT :iniciar,:nregistros';
+                        $sql_registros = 'SELECT * FROM registro_facturas LIMIT :iniciar,:nregistros';
                         $sentencia_registros = $pdo->prepare($sql_registros);
                         $sentencia_registros->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
                         $sentencia_registros->bindParam(':nregistros', $registros_por_pagina, PDO::PARAM_INT);
@@ -114,28 +114,29 @@
                         </thead>
                         <tbody>
 
-                            <?php foreach ($resultado_registros as $articulo): ?>
+                            <?php foreach ($resultado_registros as $registro): ?>
                             <tr>
                                 <td>
-                                    <?php echo $articulo['id'] ?>
+                                    <?php echo $registro['id'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $articulo['articulo'] ?>
+                                    <?php echo $registro['nombre'] . ' ' . $registro['apellidoPaterno'] . ' ' . $registro['apellidoMaterno'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $articulo['articulo'] ?>
+                                    <?php echo $registro['sede'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $articulo['articulo'] ?>
+                                    <?php echo $registro['fechaCurso'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $articulo['articulo'] ?>
+                                    <!--<?php echo $registro['articulo'] ?>-->
+                                    Factura
                                 </td>
                                 <td>
-                                    <?php echo $articulo['articulo'] ?>
+                                    <?php echo $registro['proveedor'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $articulo['articulo'] ?>
+                                    <?php echo $registro['fechaCompra'] ?>
                                 </td>
                                 <td>
                                     <a href="" class="btn btn-warning btn-block btn-sm">
