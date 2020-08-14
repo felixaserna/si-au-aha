@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
-<body>
+<body class="font-weight-light">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">

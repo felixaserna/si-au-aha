@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css" />
 </head>
-<body>
+<body class="font-weight-light">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -95,30 +95,52 @@
                     <table class="table table-hover table-striped">
                         <thead class="thead-dark">
                             <tr>
-                                <th class="font-weight-light">ID</th>
-                                <th class="font-weight-light">Nombre</th>
-                                <th class="font-weight-light">Sede</th>
-                                <th class="font-weight-light">Fecha del curso</th>
-                                <th class="font-weight-light">Factura</th>
-                                <th class="font-weight-light">Proveedor</th>
-                                <th class="font-weight-light">Fecha de compra</th>
-                                <th class="font-weight-light">Editar</th>
-                                <th class="font-weight-light">Eliminar</th>
+                                <th class="font-weight-bold">ID</th>
+                                <th class="font-weight-bold">Nombre</th>
+                                <th class="font-weight-bold">Sede</th>
+                                <th class="font-weight-bold">Fecha del curso</th>
+                                <th class="font-weight-bold">Factura</th>
+                                <th class="font-weight-bold">Proveedor</th>
+                                <th class="font-weight-bold">Fecha de compra</th>
+                                <th class="font-weight-bold">Editar</th>
+                                <th class="font-weight-bold">Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             <?php foreach ($resultado_registros as $articulo): ?>
                             <tr>
-                                <td class="font-weight-light"><?php echo $articulo['id'] ?></td>
-                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
-                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
-                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
-                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
-                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
-                                <td class="font-weight-light"><?php echo $articulo['articulo'] ?></td>
-                                <td class="font-weight-light"><a href="" class="btn btn-warning btn-block btn-sm">Editar</a></td>
-                                <td class="font-weight-light"><a href="" class="btn btn-danger btn-block btn-sm">Eliminar</a></td>
+                                <td>
+                                    <?php echo $articulo['id'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $articulo['articulo'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $articulo['articulo'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $articulo['articulo'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $articulo['articulo'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $articulo['articulo'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $articulo['articulo'] ?>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-warning btn-block btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-danger btn-block btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                             <?php endforeach ?>
 
