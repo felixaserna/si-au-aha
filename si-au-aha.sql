@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2020 a las 01:41:59
+-- Tiempo de generación: 14-08-2020 a las 03:23:56
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.12
 
@@ -25,62 +25,39 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `articulos`
+-- Estructura de tabla para la tabla `registro_facturas`
 --
 
-CREATE TABLE `articulos` (
+CREATE TABLE `registro_facturas` (
   `id` int(11) NOT NULL,
-  `articulo` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nombre` text COLLATE utf8_unicode_ci NOT NULL,
+  `apellidoPaterno` text COLLATE utf8_unicode_ci NOT NULL,
+  `apellidoMaterno` text COLLATE utf8_unicode_ci NOT NULL,
+  `sede` text COLLATE utf8_unicode_ci NOT NULL,
+  `fechaCurso` date NOT NULL,
+  `proveedor` text COLLATE utf8_unicode_ci NOT NULL,
+  `fechaCompra` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `articulos`
+-- Volcado de datos para la tabla `registro_facturas`
 --
 
-INSERT INTO `articulos` (`id`, `articulo`) VALUES
-(1, 'Articulo 1'),
-(2, 'Articulo 2'),
-(3, 'Articulo 3'),
-(4, 'Articulo 4'),
-(5, 'Articulo 5'),
-(6, 'Articulo 6'),
-(7, 'Articulo 7'),
-(8, 'Articulo 8'),
-(9, 'Articulo 9'),
-(10, 'Articulo 10'),
-(11, 'Articulo 11'),
-(12, 'Articulo 12'),
-(13, 'Articulo 13'),
-(14, 'Articulo 14'),
-(15, 'Articulo 15'),
-(16, 'Artículo 16'),
-(17, 'Artículo 17');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `articulos2`
---
-
-CREATE TABLE `articulos2` (
-  `id` int(11) NOT NULL,
-  `articulo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `registro_facturas` (`id`, `nombre`, `apellidoPaterno`, `apellidoMaterno`, `sede`, `fechaCurso`, `proveedor`, `fechaCompra`) VALUES
+(1, 'MARIA', 'CORDOVA', 'MIÃ‘ON', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07'),
+(2, 'MAGALI ELIZABETH', 'ROSAS', 'PACHECO', 'CCCAMP Xalapa', '2019-11-03', 'WorlPoin', '2019-11-07'),
+(3, 'CIRENIA GUADALUPE', 'FLORES', 'RUIZ', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07'),
+(4, 'MARIA DE LOURDES', 'CORDOBA', 'MAVIL', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07'),
+(5, 'CESAR ALEJANDRO', 'MARTINEZ', 'LOPEZ', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `articulos`
+-- Indices de la tabla `registro_facturas`
 --
-ALTER TABLE `articulos`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `articulos2`
---
-ALTER TABLE `articulos2`
+ALTER TABLE `registro_facturas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -88,16 +65,10 @@ ALTER TABLE `articulos2`
 --
 
 --
--- AUTO_INCREMENT de la tabla `articulos`
+-- AUTO_INCREMENT de la tabla `registro_facturas`
 --
-ALTER TABLE `articulos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT de la tabla `articulos2`
---
-ALTER TABLE `articulos2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `registro_facturas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
