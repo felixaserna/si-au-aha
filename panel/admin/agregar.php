@@ -43,27 +43,27 @@
             
                         <div class="form-group col-md-4">
                             <label for="">Nombre(s):</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="nombre" id="nombre" class="form-control" required>
                         </div>
             
                         <div class="form-group col-md-4">
                             <label for="">Apellido paterno:</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="apellidoPaterno" id="apellidoPaterno" class="form-control" required>
                         </div>
             
                         <div class="form-group col-md-4">
                             <label for="">Apellido materno:</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="apellidoMaterno" id="apellidoMaterno" class="form-control" required>
                         </div>
             
                         <div class="form-group col-md-12">
                             <label for="">Sede:</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="sede" id="sede" class="form-control" required>
                         </div>
             
                         <div class="form-group col-md-12">
                             <label for="">Fecha del curso:</label>
-                            <input type="date" name="" id="" class="form-control">
+                            <input type="date" name="fechaCurso" id="fechaCurso" class="form-control" required>
                         </div>
             
                         <div class="form-group col-md-6">
@@ -78,12 +78,12 @@
             
                         <div class="form-group col-md-6">
                             <label for="">Proveedor:</label>
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="proveedor" id="proveedor" class="form-control" required>
                         </div>
             
                         <div class="form-group col-md-12">
                             <label for="">Fecha de compra:</label>
-                            <input type="date" name="" id="" class="form-control">
+                            <input type="date" name="fechaCompra" id="fechaCompra" class="form-control" required>
                         </div>
         
                         <div class="form-group col-md-8 text-center">

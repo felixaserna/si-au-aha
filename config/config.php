@@ -1,6 +1,7 @@
 <?php
 
     try {
+        
         $pdo = new PDO('mysql:host=localhost;dbname=si-au-aha', 'root', '');
         
         // echo 'Conectado';
