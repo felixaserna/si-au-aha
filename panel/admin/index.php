@@ -98,7 +98,7 @@
                         $resultado_registros = $sentencia_registros->fetchAll();
                     ?>
 
-                    <table class="table table-hover table-striped">
+                    <table class="table table-hover table-striped table-responsive">
                         <thead class="thead-dark">
                             <tr>
                                 <th class="font-weight-bold">ID</th>
