@@ -32,6 +32,7 @@
 
     <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css" />
 </head>
 <body>
 
@@ -70,8 +71,27 @@
                     </div>
 
                     <?php 
-                        if(!$_GET){
+
+                        if(!$_GET) {
                             header('Location:index.php?pagina=1');
+                        }
+
+                        if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
+                            header('Location:index.php?pagina=1');
+                            /*echo 
+                                "
+                                    <script type='text/javascript'>
+                                        swal({
+                                            title: 'Página no disponible',
+                                            type: 'error',
+                                            showConfirmButton: true,
+                                            confirmButtonText: 'ACEPTAR',
+                                            closeOnConfirm: false
+                                            }). then(function(result){
+                                            window.location = 'index.php?pagina=1';
+                                        })
+                                    </script>
+                                ";*/
                         }
 
                         $iniciar = ($_GET['pagina']-1)*$registros_por_pagina;
@@ -122,7 +142,9 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
-                                <a class="page-link" href="index.php?pagina=<?php echo $_GET['pagina']-1 ?>">Anterior</a>
+                                <a class="page-link" href="index.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                                    <i class="fas fa-long-arrow-alt-left"></i>
+                                </a>
                             </li>
                             
                             <?php for($i=0; $i<$paginas; $i++): ?>
@@ -136,7 +158,9 @@
                             <?php endfor ?>
 
                             <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">
-                                <a class="page-link" href="index.php?pagina=<?php echo $_GET['pagina']+1 ?>">Siguiente</a>
+                                <a class="page-link" href="index.php?pagina=<?php echo $_GET['pagina']+1 ?>">
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -149,5 +173,7 @@
     <script src="../../dist/js/jquery-3.5.1.slim.min.js"></script>
     <script src="../../dist/js/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
 </body>
 </html>
