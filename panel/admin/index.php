@@ -97,9 +97,9 @@
                         $iniciar = ($_GET['pagina']-1)*$registros_por_pagina;
                         // echo $iniciar;
 
-                        $sql_registros = 'SELECT * FROM articulos LIMIT :inicar,:nregistros';
+                        $sql_registros = 'SELECT * FROM articulos LIMIT :iniciar,:nregistros';
                         $sentencia_registros = $pdo->prepare($sql_registros);
-                        $sentencia_registros->bindParam(':inicar', $iniciar, PDO::PARAM_INT);
+                        $sentencia_registros->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
                         $sentencia_registros->bindParam(':nregistros', $registros_por_pagina, PDO::PARAM_INT);
                         $sentencia_registros->execute();
 
