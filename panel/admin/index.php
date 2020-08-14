@@ -78,20 +78,6 @@
 
                         if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
                             header('Location:index.php?pagina=1');
-                            /*echo 
-                                "
-                                    <script type='text/javascript'>
-                                        swal({
-                                            title: 'Página no disponible',
-                                            type: 'error',
-                                            showConfirmButton: true,
-                                            confirmButtonText: 'ACEPTAR',
-                                            closeOnConfirm: false
-                                            }). then(function(result){
-                                            window.location = 'index.php?pagina=1';
-                                        })
-                                    </script>
-                                ";*/
                         }
 
                         $iniciar = ($_GET['pagina']-1)*$registros_por_pagina;
