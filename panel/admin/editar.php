@@ -57,11 +57,11 @@
             </div>
             <div class="card-body">
 
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="actions/edit.php" method="post" enctype="multipart/form-data">
 
                      <div class="form-row">
 
-                        <input class="form-control" type="hidden" name="" id="" value="<?php echo $registro_factura->id; ?>">
+                        <input class="form-control" type="hidden" name="id" id="id" value="<?php echo $registro_factura->id; ?>">
             
                         <div class="form-group col-md-4">
                             <label for="">Nombre(s):</label>
@@ -91,7 +91,7 @@
                         <div class="form-group col-md-6">
                             <div class="custom-file">
                                 <label for="" class="">Factura:</label>
-                                <input type="file" class="form-control-file" id="" name="" required>
+                                <input type="file" class="form-control-file" id="factura" name="factura" accept="application/pdf">
                                 <small class="form-text text-muted">
                                     Solamente archivos PDF
                                 </small>

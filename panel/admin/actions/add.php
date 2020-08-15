@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar</title>
-
     
     <link rel="stylesheet" href="../../../dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
@@ -155,36 +154,36 @@
 
         if ($resultado === TRUE) {
             // echo "Insertado correctamente";
-            echo 
-                    "
-                        <script type='text/javascript'>
-                            swal({
-                                title: 'Registro guardado exitosamente',
-                                type: 'success',
-                                showConfirmButton: true,
-                                confirmButtonText: 'ACEPTAR',
-                                closeOnConfirm: false
-                                }). then(function(result){
-                                window.location = '../index.php?pagina=1';
-                            })
-                        </script>
-                    ";
+            echo
+                "
+                    <script type='text/javascript'>
+                        swal({
+                            title: 'Registro guardado exitosamente',
+                            type: 'success',
+                            showConfirmButton: true,
+                            confirmButtonText: 'ACEPTAR',
+                            closeOnConfirm: false
+                            }). then(function(result){
+                            window.location = '../index.php?pagina=1';
+                        })
+                    </script>
+                ";
         } else {
             // echo "Ocurrió un error";
             echo 
-                    "
-                        <script type='text/javascript'>
-                            swal({
-                                title: 'Ocurrió un error. Vuelve a intentarlo.',
-                                type: 'error',
-                                showConfirmButton: true,
-                                confirmButtonText: 'ACEPTAR',
-                                closeOnConfirm: false
-                                }). then(function(result){
-                                window.location = '../index.php?pagina=1';
-                            })
-                        </script>
-                    ";
+                "
+                    <script type='text/javascript'>
+                        swal({
+                            title: 'Ocurrió un error. Vuelve a intentarlo.',
+                            type: 'error',
+                            showConfirmButton: true,
+                            confirmButtonText: 'ACEPTAR',
+                            closeOnConfirm: false
+                            }). then(function(result){
+                            window.location = '../index.php?pagina=1';
+                        })
+                    </script>
+                ";
         }
     ?>
 
