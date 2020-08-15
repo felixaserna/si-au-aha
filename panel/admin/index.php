@@ -13,7 +13,7 @@
     $sentencia = $pdo->prepare($sql);
     $sentencia->execute();
 
-    $resultado = $sentencia->fetchAll();
+    $resultado = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
     // var_dump($resultado);
 
@@ -129,7 +129,6 @@
                                     <?php echo $registro['fechaCurso'] ?>
                                 </td>
                                 <td>
-                                    <!--<?php echo $registro['articulo'] ?>-->
                                     Factura
                                 </td>
                                 <td>
@@ -139,12 +138,12 @@
                                     <?php echo $registro['fechaCompra'] ?>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-warning btn-block btn-sm">
+                                    <a href="<?php echo "editar.php?id=" . $registro['id'] ?>" class="btn btn-warning btn-block btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-danger btn-block btn-sm">
+                                    <a href="<?php echo "eliminar.php?id=" . $registro['id'] ?>" class="btn btn-danger btn-block btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

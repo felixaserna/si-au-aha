@@ -25,6 +25,7 @@
             !isset($_POST["apellidoMaterno"]) || 
             !isset($_POST["sede"]) || 
             !isset($_POST["fechaCurso"]) || 
+            !isset($_POST["factura"]) || 
             !isset($_POST["proveedor"]) || 
             !isset($_POST["fechaCompra"])
             ) {
@@ -38,17 +39,119 @@
         $apellidoMaterno = $_POST["apellidoMaterno"];
         $sede = $_POST["sede"];
         $fechaCurso = $_POST["fechaCurso"];
+        $factura = $_POST["factura"];
         $proveedor = $_POST["proveedor"];
         $fechaCompra = $_POST["fechaCompra"];
 
         $sql = 
             $pdo->prepare(
                 "INSERT INTO registro_facturas
-                (nombre, apellidoPaterno, apellidoMaterno, sede, fechaCurso, proveedor, fechaCompra)
-                VALUES (?, ?, ?, ?, ?, ?, ?);
+                (nombre, apellidoPaterno, apellidoMaterno, sede, fechaCurso, factura, proveedor, fechaCompra)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?);
             ");
         
-        $resultado = $sql->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $proveedor, $fechaCompra]);
+        $resultado = $sql->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $factura, $proveedor, $fechaCompra]);
+
+        $id_insert = $pdo->insert_id;
+
+        if ($_FILES["factura"]["error"] > 0) {
+            // echo "Error al cargar archivo";
+            echo 
+                "
+                        <script type='text/javascript'>
+                            swal({
+                                title: 'Error al cargar la factura',
+                                type: 'error',
+                                showConfirmButton: true,
+                                confirmButtonText: 'ACEPTAR',
+                                closeOnConfirm: false
+                                }). then(function(result){
+                                window.location = '../index.php?pagina=1';
+                            })
+                        </script>
+                    ";
+        } else {
+            $permitidos = array("application/pdf");
+            $limite_kb = 10000;
+
+            if (in_array($_FILES["factura"]["type"], $permitidos) && $_FILES["factura"]["size"] <= $limite_kb * 1024) {
+
+                $ruta = 'facturas/'.$id_insert.'/';
+                $archivo = $ruta.$_FILES["factura"]["name"];
+
+                if (!file_exists($ruta)) {
+                    mkdir($ruta);
+                }
+
+                if (!file_exists($archivo)) {
+                    $resultado = @move_uploaded_file($_FILES["factura"]["tmp_name"], $archivo);
+
+                    if ($resultado) {
+                        echo 
+                        "
+                            <script type='text/javascript'>
+                                swal({
+                                    title: 'Archivo guardado',
+                                    type: 'success',
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'ACEPTAR',
+                                    closeOnConfirm: false
+                                    }). then(function(result){
+                                    window.location = '../index.php?pagina=1';
+                                })
+                            </script>
+                        ";
+                    } else {
+                        echo 
+                        "
+                            <script type='text/javascript'>
+                                swal({
+                                    title: 'Error al guardar el archivo',
+                                    type: 'success',
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'ACEPTAR',
+                                    closeOnConfirm: false
+                                    }). then(function(result){
+                                    window.location = '../index.php?pagina=1';
+                                })
+                            </script>
+                        ";
+                    }
+
+                } else {
+                    echo 
+                    "
+                        <script type='text/javascript'>
+                            swal({
+                                title: 'La factura ya existe en el sistema',
+                                type: 'warning',
+                                showConfirmButton: true,
+                                confirmButtonText: 'ACEPTAR',
+                                closeOnConfirm: false
+                                }). then(function(result){
+                                window.location = '../index.php?pagina=1';
+                            })
+                        </script>
+                    ";
+                }
+
+            } else {
+                echo
+                    "
+                        <script type='text/javascript'>
+                            swal({
+                                title: 'Archivo no permitido o excede el tamaño',
+                                type: 'warning',
+                                showConfirmButton: true,
+                                confirmButtonText: 'ACEPTAR',
+                                closeOnConfirm: false
+                                }). then(function(result){
+                                window.location = '../index.php?pagina=1';
+                            })
+                        </script>
+                    ";
+            }
+        }
 
         if ($resultado === TRUE) {
             // echo "Insertado correctamente";
