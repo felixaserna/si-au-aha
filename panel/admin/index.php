@@ -143,7 +143,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="<?php echo "eliminar.php?id=" . $registro['id'] ?>" class="btn btn-danger btn-block btn-sm">
+                                    <a href="<?php echo "actions/delete.php?id=" . $registro['id'] ?>" class="btn btn-danger btn-block btn-sm">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

@@ -24,7 +24,7 @@
             !isset($_POST["apellidoMaterno"]) || 
             !isset($_POST["sede"]) || 
             !isset($_POST["fechaCurso"]) || 
-            !isset($_POST["factura"]) || 
+            #!isset($_POST["factura"]) || 
             !isset($_POST["proveedor"]) || 
             !isset($_POST["fechaCompra"])
             ) {
@@ -50,6 +50,29 @@
             ");
         
         $resultado = $sql->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $proveedor, $fechaCompra]);
+
+        $id_insert = $pdo->lastInsertId();
+
+        if ($_FILES["factura"]["error"] > 0) {
+            echo "Error al cargar archivo";
+        } else {
+            $permitidos = array ("application/pdf");
+            $limite_kb = 10000;
+
+            if (in_array($_FILES["factura"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024) {
+                $ruta = 'facturas/' . $id_insert . '/';
+                $archivo = $ruta . $_FILES["factura"]["name"];
+
+                if (!file_exists($ruta)) {
+                    mkdir($ruta);
+                }
+
+                
+
+            } else {
+                echo "Archivo no permitido o excede el tamaño";
+            }
+        }
 
         if ($resultado === TRUE) {
             // echo "Insertado correctamente";
