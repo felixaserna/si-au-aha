@@ -23,8 +23,7 @@
             !isset($_POST["apellidoPaterno"]) ||
             !isset($_POST["apellidoMaterno"]) || 
             !isset($_POST["sede"]) || 
-            !isset($_POST["fechaCurso"]) || 
-            #!isset($_POST["factura"]) || 
+            !isset($_POST["fechaCurso"]) ||
             !isset($_POST["proveedor"]) || 
             !isset($_POST["fechaCompra"])
             ) {
@@ -38,18 +37,18 @@
         $apellidoMaterno = $_POST["apellidoMaterno"];
         $sede = $_POST["sede"];
         $fechaCurso = $_POST["fechaCurso"];
-        # $factura = $_POST["factura"];
+        $factura = $_POST["factura"];
         $proveedor = $_POST["proveedor"];
         $fechaCompra = $_POST["fechaCompra"];
 
         $sql = 
             $pdo->prepare(
                 "INSERT INTO registro_facturas
-                (nombre, apellidoPaterno, apellidoMaterno, sede, fechaCurso, proveedor, fechaCompra)
-                VALUES (?, ?, ?, ?, ?, ?, ?);
+                (nombre, apellidoPaterno, apellidoMaterno, sede, fechaCurso, factura, proveedor, fechaCompra)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?);
             ");
         
-        $resultado = $sql->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $proveedor, $fechaCompra]);
+        $resultado = $sql->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $factura, $proveedor, $fechaCompra]);
 
         $id_insert = $pdo->lastInsertId();
 
@@ -59,7 +58,7 @@
             $permitidos = array ("application/pdf");
             $limite_kb = 10000;
 
-            if (in_array($_FILES["factura"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024) {
+            if (in_array($_FILES["factura"]["type"], $permitidos) && $_FILES["factura"]["size"] <= $limite_kb * 1024) {
                 $ruta = 'facturas/' . $id_insert . '/';
                 $archivo = $ruta . $_FILES["factura"]["name"];
 
@@ -67,7 +66,18 @@
                     mkdir($ruta);
                 }
 
-                
+                if (!file_exists($archivo)) {
+                    $resultado_archivo = @move_uploaded_file($_FILES["factura"]["tmp_name"], $archivo);
+
+                    if ($resultado_archivo ) {
+                        echo "Archivo Guardado";
+                    } else {
+                        echo "Error al guardar el archivo";
+                    }
+
+                } else {
+                    echo "Archivo ya existe";
+                }
 
             } else {
                 echo "Archivo no permitido o excede el tamaño";

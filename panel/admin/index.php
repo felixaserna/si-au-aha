@@ -129,7 +129,7 @@
                                     <?php echo $registro['fechaCurso'] ?>
                                 </td>
                                 <td>
-                                    Factura
+                                    <a href="<?php echo "facturas/" . $registro['id'] . '/' ?>"></a>
                                 </td>
                                 <td>
                                     <?php echo $registro['proveedor'] ?>
