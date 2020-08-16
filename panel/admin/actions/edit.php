@@ -40,7 +40,7 @@
         $apellidoMaterno = $_POST["apellidoMaterno"];
         $sede = $_POST["sede"];
         $fechaCurso = $_POST["fechaCurso"];
-        $factura = $_FILES["factura"];
+        //$factura = $_POST["factura"];
         $proveedor = $_POST["proveedor"];
         $fechaCompra = $_POST["fechaCompra"];
 

@@ -37,7 +37,7 @@
         $apellidoMaterno = $_POST["apellidoMaterno"];
         $sede = $_POST["sede"];
         $fechaCurso = $_POST["fechaCurso"];
-        $factura = $_POST["factura"];
+        $factura = $_FILES["factura"]["name"];
         $proveedor = $_POST["proveedor"];
         $fechaCompra = $_POST["fechaCompra"];
 
@@ -70,17 +70,72 @@
                     $resultado_archivo = @move_uploaded_file($_FILES["factura"]["tmp_name"], $archivo);
 
                     if ($resultado_archivo ) {
-                        echo "Archivo Guardado";
+                        // echo "Archivo Guardado";
+                        echo
+                            "
+                                <script type='text/javascript'>
+                                    swal({
+                                        title: 'Archivo guardado exitosamente',
+                                        type: 'success',
+                                        showConfirmButton: true,
+                                        confirmButtonText: 'ACEPTAR',
+                                        closeOnConfirm: false
+                                        })
+                                    })
+                                </script>
+                            ";
                     } else {
-                        echo "Error al guardar el archivo";
+                        // echo "Error al guardar el archivo";
+                        echo 
+                            "
+                                <script type='text/javascript'>
+                                    swal({
+                                        title: 'Error al guardar el archivo',
+                                        type: 'error',
+                                        showConfirmButton: true,
+                                        confirmButtonText: 'ACEPTAR',
+                                        closeOnConfirm: false
+                                        }). then(function(result){
+                                        window.location = '../index.php?pagina=1';
+                                    })
+                                </script>
+                            ";
                     }
 
                 } else {
-                    echo "Archivo ya existe";
+                    // echo "Archivo ya existe";
+                    echo 
+                        "
+                            <script type='text/javascript'>
+                                swal({
+                                    title: 'El archivo ya existe',
+                                    type: 'warning',
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'ACEPTAR',
+                                    closeOnConfirm: false
+                                    }). then(function(result){
+                                    window.location = '../index.php?pagina=1';
+                                })
+                            </script>
+                        ";
                 }
 
             } else {
-                echo "Archivo no permitido o excede el tamaño";
+                // echo "Archivo no permitido o excede el tamaño";
+                echo 
+                    "
+                        <script type='text/javascript'>
+                        swal({
+                            title: 'Archivo no permitido o excede el tamaño',
+                            type: 'info',
+                            showConfirmButton: true,
+                            confirmButtonText: 'ACEPTAR',
+                            closeOnConfirm: false
+                            }). then(function(result){
+                            window.location = '../index.php?pagina=1';
+                        })
+                    </script>
+                    ";
             }
         }
 

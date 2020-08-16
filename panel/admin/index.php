@@ -105,7 +105,7 @@
                                 <th class="font-weight-bold">Nombre</th>
                                 <th class="font-weight-bold">Sede</th>
                                 <th class="font-weight-bold">Fecha del curso</th>
-                                <th class="font-weight-bold">Factura</th>
+                                <th class="font-weight-bold text-center">Factura</th>
                                 <th class="font-weight-bold">Proveedor</th>
                                 <th class="font-weight-bold">Fecha de compra</th>
                                 <th class="font-weight-bold">Editar</th>
@@ -129,7 +129,10 @@
                                     <?php echo $registro['fechaCurso'] ?>
                                 </td>
                                 <td>
-                                    <a href="<?php echo "facturas/" . $registro['id'] . '/' ?>"></a>
+                                    <a href="actions/facturas/<?php echo $registro['id'] . '/' . $registro['factura'] ?>" type="button" class="btn btn-danger btn-sm btn-block" data-toggle="tooltip" title="Visualizar factura">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <?php echo $registro['factura'] ?>
+                                    </a>
                                 </td>
                                 <td>
                                     <?php echo $registro['proveedor'] ?>
@@ -138,12 +141,12 @@
                                     <?php echo $registro['fechaCompra'] ?>
                                 </td>
                                 <td>
-                                    <a href="<?php echo "editar.php?id=" . $registro['id'] ?>" class="btn btn-warning btn-block btn-sm">
+                                    <a href="<?php echo "editar.php?id=" . $registro['id'] ?>" class="btn btn-warning btn-block btn-sm" data-toggle="tooltip" title="Editar registro">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="<?php echo "actions/delete.php?id=" . $registro['id'] ?>" class="btn btn-danger btn-block btn-sm">
+                                    <a href="<?php echo "actions/delete.php?id=" . $registro['id'] ?>" class="btn btn-danger btn-block btn-sm" data-toggle="tooltip" title="Eliminar">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
