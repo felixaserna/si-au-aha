@@ -38,18 +38,18 @@
         $apellidoMaterno = $_POST["apellidoMaterno"];
         $sede = $_POST["sede"];
         $fechaCurso = $_POST["fechaCurso"];
-        $factura = $_POST["factura"];
+        # $factura = $_POST["factura"];
         $proveedor = $_POST["proveedor"];
         $fechaCompra = $_POST["fechaCompra"];
 
         $sql = 
             $pdo->prepare(
                 "INSERT INTO registro_facturas
-                (nombre, apellidoPaterno, apellidoMaterno, sede, fechaCurso, factura, proveedor, fechaCompra)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+                (nombre, apellidoPaterno, apellidoMaterno, sede, fechaCurso, proveedor, fechaCompra)
+                VALUES (?, ?, ?, ?, ?, ?, ?);
             ");
         
-        $resultado = $sql->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $factura, $proveedor, $fechaCompra]);
+        $resultado = $sql->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $proveedor, $fechaCompra]);
 
         if ($resultado === TRUE) {
             // echo "Insertado correctamente";
