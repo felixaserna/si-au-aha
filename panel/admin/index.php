@@ -81,10 +81,12 @@
                             </div>
 
                             <div class="col-md-4">
-                                <a href="" type="button" class="btn btn-outline-success btn-sm btn-block">
-                                    <i class="fas fa-file-excel"></i>
-                                    Exportar a Excel
-                                </a>
+                                <form action="" method="post">
+                                    <a href="" type="button" class="btn btn-outline-success btn-sm btn-block">
+                                        <i class="fas fa-file-excel"></i>
+                                        Exportar a Excel
+                                    </a>
+                                </form>
                             </div>
                         
                         </div>
