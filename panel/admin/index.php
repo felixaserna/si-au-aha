@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                                <form action="actions/exportar.php" method="post">
                                     <button name="export_data" id="export_data" type="submit" class="btn btn-outline-success btn-sm btn-block">
                                         <i class="fas fa-file-excel"></i>
                                         Exportar a Excel
