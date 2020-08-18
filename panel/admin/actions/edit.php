@@ -18,6 +18,8 @@
 
     <?php 
 
+        include_once "../../../config/config.php";
+
         if (
             !isset($_POST["id"]) || 
             !isset($_POST["nombre"]) || 
@@ -32,25 +34,133 @@
                 exit();
         }
 
-        include_once "../../../config/config.php";
-
         $id = $_POST['id'];
         $nombre = $_POST["nombre"];
         $apellidoPaterno = $_POST["apellidoPaterno"];
         $apellidoMaterno = $_POST["apellidoMaterno"];
         $sede = $_POST["sede"];
         $fechaCurso = $_POST["fechaCurso"];
-        //$factura = $_POST["factura"];
+        $factura = $_FILES["factura"]["name"];
         $proveedor = $_POST["proveedor"];
         $fechaCompra = $_POST["fechaCompra"];
+
+        $archivo_cargado = $_POST["archivo_cargado"];
 
         $sentencia = 
             $pdo->prepare(
                 "UPDATE registro_facturas SET nombre = ?, apellidoPaterno = ?, apellidoMaterno = ?, 
-                sede = ?, fechaCurso = ?, proveedor = ?, fechaCompra = ? WHERE id = ?;"
+                sede = ?, fechaCurso = ?, factura = ?, proveedor = ?, fechaCompra = ? WHERE id = ?;"
             );
         
-        $resultado = $sentencia->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $proveedor, $fechaCompra, $id]);
+        $resultado = $sentencia->execute([$nombre, $apellidoPaterno, $apellidoMaterno, $sede, $fechaCurso, $factura, $proveedor, $fechaCompra, $id]);
+
+        $id_insert = $id;
+
+        if ($_FILES["factura"]["error"] > 0) {
+            // echo "Error al cargar archivo";
+
+            echo
+                "
+                    <script type='text/javascript'>
+                        swal({
+                            title: 'Error al cargar el archivo',
+                            type: 'error',
+                            showConfirmButton: true,
+                            confirmButtonText: 'ACEPTAR',
+                            closeOnConfirm: false
+                            })
+                        })
+                    </script>
+                ";
+
+        } else {
+            $permitidos = array ("application/pdf");
+            $limite_kb = 10000;
+
+            if (in_array($_FILES["factura"]["type"], $permitidos) && $_FILES["factura"]["size"] <= $limite_kb * 1024) {
+                $ruta = 'facturas/' . $id_insert . '/';
+                $archivo = $ruta . $_FILES["factura"]["name"];
+
+                if (file_exists($ruta)) {
+                    unlink($ruta . "/" . $archivo_cargado);
+                }
+
+                if (!file_exists($ruta)) {
+                    mkdir($ruta);
+                }
+
+                if (!file_exists($archivo)) {
+                    $resultado_archivo = @move_uploaded_file($_FILES["factura"]["tmp_name"], $archivo);
+
+                    if ($resultado_archivo ) {
+                        // echo "Archivo Guardado";
+                        echo
+                            "
+                                <script type='text/javascript'>
+                                    swal({
+                                        title: 'Archivo guardado exitosamente',
+                                        type: 'success',
+                                        showConfirmButton: true,
+                                        confirmButtonText: 'ACEPTAR',
+                                        closeOnConfirm: false
+                                        })
+                                    })
+                                </script>
+                            ";
+                    } else {
+                        // echo "Error al guardar el archivo";
+                        echo 
+                            "
+                                <script type='text/javascript'>
+                                    swal({
+                                        title: 'Error al guardar el archivo',
+                                        type: 'error',
+                                        showConfirmButton: true,
+                                        confirmButtonText: 'ACEPTAR',
+                                        closeOnConfirm: false
+                                        }). then(function(result){
+                                        window.location = '../index.php?pagina=1';
+                                    })
+                                </script>
+                            ";
+                    }
+
+                } else {
+                    // echo "Archivo ya existe";
+                    echo 
+                        "
+                            <script type='text/javascript'>
+                                swal({
+                                    title: 'El archivo ya existe',
+                                    type: 'warning',
+                                    showConfirmButton: true,
+                                    confirmButtonText: 'ACEPTAR',
+                                    closeOnConfirm: false
+                                    }). then(function(result){
+                                    window.location = '../index.php?pagina=1';
+                                })
+                            </script>
+                        ";
+                }
+
+            } else {
+                // echo "Archivo no permitido o excede el tamaño";
+                echo 
+                    "
+                        <script type='text/javascript'>
+                        swal({
+                            title: 'Archivo no permitido o excede el tamaño',
+                            type: 'info',
+                            showConfirmButton: true,
+                            confirmButtonText: 'ACEPTAR',
+                            closeOnConfirm: false
+                            }). then(function(result){
+                            window.location = '../index.php?pagina=1';
+                        })
+                    </script>
+                    ";
+            }
+        }
 
         if ($resultado === TRUE) {
             echo 

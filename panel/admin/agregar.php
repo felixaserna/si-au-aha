@@ -33,7 +33,7 @@
     <div class="container my-4">
         <div class="card">
 
-            <div class="card-header">
+            <div class="card-header text-center">
                 Nuevo registro
             </div>
 

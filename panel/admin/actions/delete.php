@@ -16,6 +16,7 @@
 <body>
 
     <?php 
+        include_once "../../../config/config.php";
 
         if (!isset($_GET['id'])) {
             exit();
@@ -23,11 +24,23 @@
         
         $id = $_GET["id"];
 
-        include_once "../../../config/config.php";
 
         $sentencia = $pdo->prepare("DELETE FROM registro_facturas WHERE id = ?;");
 
         $resultado = $sentencia->execute([$id]);
+
+        eliminarDir('facturas/' . $id);
+
+        function eliminarDir($carpeta) {
+            foreach(glob($carpeta . "/*") as $archivos_carpeta) {
+                if (is_dir($archivos_carpeta)) {
+                    eliminarDir($archivos_carpeta);
+                } else {
+                    unlink($archivos_carpeta);
+                }
+            }
+            rmdir($carpeta);
+        }
 
         if ($resultado === TRUE ) {
             echo
@@ -45,8 +58,8 @@
                     </script>
                 ";
         } else {
-        echo
-            "
+            echo
+                "
                     <script type='text/javascript'>
                         swal({
                             title: 'Ocurrió un problema. Vuelve a intentarlo.',

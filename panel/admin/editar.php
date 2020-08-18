@@ -91,9 +91,13 @@
                         <div class="form-group col-md-6">
                             <div class="custom-file">
                                 <label for="" class="">Factura:</label>
-                                <input type="file" class="form-control-file" id="factura" name="factura" accept="application/pdf">
+                                <input type="file" class="form-control-file" id="factura" name="factura" accept="application/pdf" value="">
                                 <small class="form-text text-muted">
                                     Solamente archivos PDF
+                                    <br>
+                                    Archivo cargado: 
+                                    <a href="actions/facturas/<?php echo $registro_factura->id . '/' . $registro_factura->factura ?>"><?php echo $registro_factura->factura ?></a>
+                                    <input type="hidden" name="archivo_cargado" value="<?php echo $registro_factura->factura ?>">
                                 </small>
                             </div>
                         </div>

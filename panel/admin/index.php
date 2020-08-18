@@ -71,9 +71,25 @@
 
                 <div class="card-body">
                     <div class="mb-3">
-                        <a href="agregar.php" type="button" class="btn btn-success">
-                            Nuevo registro
-                        </a>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a href="agregar.php" type="button" class="btn btn-primary btn-sm btn-block">
+                                    <i class="fas fa-plus-circle"></i>
+                                    Nuevo registro
+                                </a>
+                            </div>
+
+                            <div class="col-md-4">
+                                <a href="" type="button" class="btn btn-outline-success btn-sm btn-block">
+                                    <i class="fas fa-file-excel"></i>
+                                    Exportar a Excel
+                                </a>
+                            </div>
+                        
+                        </div>
+                        
+                        
                     </div>
 
                     <?php 
@@ -82,9 +98,9 @@
                             header('Location:index.php?pagina=1');
                         }
 
-                        if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
+                        /*if($_GET['pagina'] > $paginas || $_GET['pagina'] <= 0) {
                             header('Location:index.php?pagina=1');
-                        }
+                        }*/
 
                         $iniciar = ($_GET['pagina']-1)*$registros_por_pagina;
                         // echo $iniciar;
@@ -98,7 +114,7 @@
                         $resultado_registros = $sentencia_registros->fetchAll();
                     ?>
 
-                    <table class="table table-hover table-striped table-responsive">
+                    <table class="table table-hover table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th class="font-weight-bold">ID</th>
@@ -113,6 +129,21 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <?php 
+
+                                if ($total_registros_db <= 0) {
+                                    echo 
+                                        '
+                                            <div class="alert alert-info text-center" role="alert">
+                                                <h4 class="alert alert-heading">Ups...</h4>
+                                                <hr>
+                                                No hay registros para mostrar
+                                            </div>
+                                        ';
+                                } else {
+
+                            ?>
 
                             <?php foreach ($resultado_registros as $registro): ?>
                             <tr>
@@ -152,6 +183,8 @@
                                 </td>
                             </tr>
                             <?php endforeach ?>
+
+                            <?php } ?>
 
                         </tbody>
                     </table>
