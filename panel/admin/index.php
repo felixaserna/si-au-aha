@@ -81,11 +81,11 @@
                             </div>
 
                             <div class="col-md-4">
-                                <form action="" method="post">
-                                    <a href="" type="button" class="btn btn-outline-success btn-sm btn-block">
+                                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                                    <button name="export_data" id="export_data" type="submit" class="btn btn-outline-success btn-sm btn-block">
                                         <i class="fas fa-file-excel"></i>
                                         Exportar a Excel
-                                    </a>
+                                    </button>
                                 </form>
                             </div>
                         
