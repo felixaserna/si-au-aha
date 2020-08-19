@@ -95,6 +95,8 @@
                                         showConfirmButton: true,
                                         confirmButtonText: 'ACEPTAR',
                                         closeOnConfirm: false
+                                        }). then(function(result){
+                                        window.location = '../agregar.php';
                                     })
                                 </script>
                             ";
@@ -111,6 +113,8 @@
                                     showConfirmButton: true,
                                     confirmButtonText: 'ACEPTAR',
                                     closeOnConfirm: false
+                                    }). then(function(result){
+                                    window.location = '../index.php?pagina=1';
                                 })
                             </script>
                         ";
@@ -127,6 +131,8 @@
                             showConfirmButton: true,
                             confirmButtonText: 'ACEPTAR',
                             closeOnConfirm: false
+                            }). then(function(result){
+                            window.location = '../index.php?pagina=1';
                         })
                     </script>
                     ";
@@ -141,8 +147,9 @@
                         swal({
                             title: 'Registro guardado exitosamente',
                             type: 'success',
-                            showConfirmButton: false,
-                            timer: 1500
+                            showConfirmButton: true,
+                            confirmButtonText: 'ACEPTAR',
+                            closeOnConfirm: false
                             }). then(function(result){
                             window.location = '../index.php?pagina=1';
                         })
@@ -160,7 +167,7 @@
                             confirmButtonText: 'ACEPTAR',
                             closeOnConfirm: false
                             }). then(function(result){
-                            window.location = '../index.php?pagina=1';
+                            window.location = '../agregar.php';
                         })
                     </script>
                 ";

@@ -31,7 +31,7 @@ while($row=$resultado->fetch_assoc()){
     $objPHPExcel->getActiveSheet()->setCellValue('D'.$fila,$row['apellidoMaterno']);
     $objPHPExcel->getActiveSheet()->setCellValue('E'.$fila,$row['sede']);
     $objPHPExcel->getActiveSheet()->setCellValue('F'.$fila,$row['fechaCurso']);
-    $objPHPExcel->getActiveSheet()->setCellValue('G'.$fila,$row['factura']);
+    $objPHPExcel->getActiveSheet()->setCellValue('G'.$fila, $row['factura']);
     $objPHPExcel->getActiveSheet()->getCell('G'.$fila)->getHyperlink()->setUrl('D:/xampp/htdocs/grupo-aspec/si-au-aha/public/admin/actions/facturas/' .  $row['id'] . '/' . $row['factura']);
     $objPHPExcel->getActiveSheet()->setCellValue('H'.$fila,$row['proveedor']);
     $objPHPExcel->getActiveSheet()->setCellValue('I'.$fila,$row['fechaCompra']);
