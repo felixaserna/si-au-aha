@@ -16,8 +16,8 @@ $objPHPExcel->getActiveSheet()->setTitle("Reporte de ventas");
 
 $objPHPExcel->getActiveSheet()->setCellValue('A1','ID');
 $objPHPExcel->getActiveSheet()->setCellValue('B1','NOMBRE');
-$objPHPExcel->getActiveSheet()->setCellValue('C1','APELLIDOPATERNO');
-$objPHPExcel->getActiveSheet()->setCellValue('D1','APELLIDOMATERNO');
+$objPHPExcel->getActiveSheet()->setCellValue('C1','APELLIDO PATERNO');
+$objPHPExcel->getActiveSheet()->setCellValue('D1','APELLIDO MATERNO');
 $objPHPExcel->getActiveSheet()->setCellValue('E1','SEDE');
 $objPHPExcel->getActiveSheet()->setCellValue('F1','FECHA CURSO');
 $objPHPExcel->getActiveSheet()->setCellValue('G1','FACTURA');
@@ -32,13 +32,14 @@ while($row=$resultado->fetch_assoc()){
     $objPHPExcel->getActiveSheet()->setCellValue('E'.$fila,$row['sede']);
     $objPHPExcel->getActiveSheet()->setCellValue('F'.$fila,$row['fechaCurso']);
     $objPHPExcel->getActiveSheet()->setCellValue('G'.$fila,$row['factura']);
+    $objPHPExcel->getActiveSheet()->getCell('G'.$fila)->getHyperlink()->setUrl('D:/xampp/htdocs/grupo-aspec/si-au-aha/public/admin/actions/facturas/' .  $row['id'] . '/' . $row['factura']);
     $objPHPExcel->getActiveSheet()->setCellValue('H'.$fila,$row['proveedor']);
     $objPHPExcel->getActiveSheet()->setCellValue('I'.$fila,$row['fechaCompra']);
     $fila++;
 }
 
 header("Content-Type:application/vnd.openxmlformats-officedocument.spreadsheethtml.sheet");
-header('Content-Disposition: attachment;filename="Productos.xlsx"');
+header('Content-Disposition: attachment;filename="Sistema de Auditoria AHA.xlsx"');
 
 header('Cache-control: max-age=0');
 $objWriter=new PHPExcel_Writer_Excel2007($objPHPExcel);

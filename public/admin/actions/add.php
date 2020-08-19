@@ -16,7 +16,7 @@
 </head>
 <body>
     
-    <?php 
+    <?php
 
         if (
             !isset($_POST["nombre"]) || 
@@ -95,8 +95,6 @@
                                         showConfirmButton: true,
                                         confirmButtonText: 'ACEPTAR',
                                         closeOnConfirm: false
-                                        }). then(function(result){
-                                        window.location = '../index.php?pagina=1';
                                     })
                                 </script>
                             ";
@@ -113,8 +111,6 @@
                                     showConfirmButton: true,
                                     confirmButtonText: 'ACEPTAR',
                                     closeOnConfirm: false
-                                    }). then(function(result){
-                                    window.location = '../index.php?pagina=1';
                                 })
                             </script>
                         ";
@@ -131,8 +127,6 @@
                             showConfirmButton: true,
                             confirmButtonText: 'ACEPTAR',
                             closeOnConfirm: false
-                            }). then(function(result){
-                            window.location = '../index.php?pagina=1';
                         })
                     </script>
                     ";
@@ -147,9 +141,8 @@
                         swal({
                             title: 'Registro guardado exitosamente',
                             type: 'success',
-                            showConfirmButton: true,
-                            confirmButtonText: 'ACEPTAR',
-                            closeOnConfirm: false
+                            showConfirmButton: false,
+                            timer: 1500
                             }). then(function(result){
                             window.location = '../index.php?pagina=1';
                         })

@@ -6,6 +6,8 @@
     // Esto le dice a PHP que generaremos cadenas UTF-8
     mb_http_output('UTF-8');
 
+    header("Content-Type: text/html;charset=utf-8");
+
     include_once '../../config/config.php';
 
     $sql = "SELECT * FROM registro_facturas";
@@ -80,14 +82,25 @@
                                 </a>
                             </div>
 
-                            <div class="col-md-4">
-                                <form action="actions/exportar.php" method="post">
-                                    <button name="export_data" id="export_data" type="submit" class="btn btn-outline-success btn-sm btn-block">
-                                        <i class="fas fa-file-excel"></i>
-                                        Exportar a Excel
-                                    </button>
-                                </form>
-                            </div>
+                            <?php
+
+                            if ($total_registros_db > 0) {
+
+                            echo
+                                    '
+                                    <div class="col-md-4">
+                                        <form action="actions/exportar.php" method="post">
+                                            <button name="export_data" id="export_data" type="submit" class="btn btn-outline-success btn-sm btn-block">
+                                                <i class="fas fa-file-excel"></i>
+                                                Exportar a Excel
+                                            </button>
+                                        </form>
+                                    </div>
+                                    ';
+
+                            }
+
+                            ?>
                         
                         </div>
                         

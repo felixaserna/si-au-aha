@@ -87,11 +87,11 @@
                         </div>
         
                         <div class="form-group col-md-8 text-center">
-                            <input type="submit" value="Guardar" class="btn btn-success btn-block">
+                            <input type="submit" value="Guardar" class="btn btn-success btn-block btn-sm">
                         </div>
         
                         <div class="form-group col-md-4">
-                            <a href="index.php" class="btn btn-link btn-block">Regresar al Inicio</a>
+                            <a href="index.php" class="btn btn-link btn-block btn-sm">Regresar al Inicio</a>
                         </div>
             
                     </div>
