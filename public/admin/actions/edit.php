@@ -188,7 +188,7 @@
                             confirmButtonText: 'ACEPTAR',
                             closeOnConfirm: false
                             }). then(function(result){
-                            window.location = '../index.php?pagina=1';
+                            window.location = '../editar.php?id=' . $id;
                         })
                     </script>
                 ";

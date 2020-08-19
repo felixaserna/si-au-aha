@@ -95,8 +95,6 @@
                                         showConfirmButton: true,
                                         confirmButtonText: 'ACEPTAR',
                                         closeOnConfirm: false
-                                        }). then(function(result){
-                                        window.location = '../agregar.php';
                                     })
                                 </script>
                             ";
@@ -113,8 +111,6 @@
                                     showConfirmButton: true,
                                     confirmButtonText: 'ACEPTAR',
                                     closeOnConfirm: false
-                                    }). then(function(result){
-                                    window.location = '../index.php?pagina=1';
                                 })
                             </script>
                         ";
@@ -131,8 +127,6 @@
                             showConfirmButton: true,
                             confirmButtonText: 'ACEPTAR',
                             closeOnConfirm: false
-                            }). then(function(result){
-                            window.location = '../index.php?pagina=1';
                         })
                     </script>
                     ";
