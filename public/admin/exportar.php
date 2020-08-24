@@ -2,6 +2,11 @@
 require 'PHPExcel.php';
 require 'conn.php';
 
+session_start();
+    if($_SESSION["iniciarsesion"]!="ok"){
+        header("location:../../index.php");
+        }
+
 $sql="SELECT id,nombre,apellidoPaterno,apellidoMaterno,sede,fechaCurso,factura,proveedor,fechaCompra FROM registro_facturas";
 $resultado=$mysqli->query($sql);
 

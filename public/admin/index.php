@@ -1,5 +1,8 @@
 <?php
-
+    session_start();
+    if($_SESSION["iniciarsesion"]!="ok"){
+        header("location:../../index.php");
+        }
     // Esto le dice a PHP que usaremos cadenas UTF-8 hasta el final
     mb_internal_encoding('UTF-8');
     
@@ -57,7 +60,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="" class="nav-link">Cerrar sesión</a>
+                        <a href="cerrar.php" class="nav-link">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
