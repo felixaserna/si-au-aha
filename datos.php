@@ -20,6 +20,7 @@
 require_once "conexion.php";
 
 
+if(isset($_POST['usuario']) && isset($_POST['password']) && isset($_POST['apellidop']) && isset($_POST['apellidom']) && isset($_POST['password']) && isset($_POST['nomsit']) &&  isset($_POST['telefono']) ){
 
 // Check connection
 if (!$conexion) {
@@ -27,7 +28,7 @@ if (!$conexion) {
 }
 
 $usuario=$_POST['usuario'];
-$poassword=$_POST['password'];
+$password=$_POST['password'];
 
 
 function buscarRepetido($usuario,$conexion) {
@@ -49,7 +50,7 @@ if(buscarRepetido($usuario,$conexion)==1){
 
 }else{
 
-  $sql = "INSERT INTO usuariosdb (nombre,apellidop,apellidom,usuario, password) VALUES ('$_POST[nombre]','$_POST[usuario]','$_POST[apellidop]','$_POST[apellidom]','$_POST[password]')";
+  $sql = "INSERT INTO usuariosdb (nombre,apellidop,apellidom,usuario, password,nomsitio,telefono) VALUES ('$_POST[nombre]','$_POST[usuario]','$_POST[apellidop]','$_POST[apellidom]','$_POST[password]','$_POST[nomsit]','$_POST[telefono]')";
 
 
   if (mysqli_query($conexion, $sql)) {
@@ -85,7 +86,9 @@ if(buscarRepetido($usuario,$conexion)==1){
   mysqli_close($conexion);
   
 }
-
+}else{
+  header('location:index.php');
+}
 
 ?>
 

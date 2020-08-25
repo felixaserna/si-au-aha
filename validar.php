@@ -33,7 +33,7 @@ try{
         if($_SESSION['iniciarsesion']=="ok"){
         
             if($_SESSION['usuario'] =="admin"){
-          header("location:public/index.php");
+          header("location:public/home/index.php");
         }else{
           header("location:index.php");
         }
