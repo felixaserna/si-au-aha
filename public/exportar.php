@@ -4,7 +4,7 @@ require 'conn.php';
 
 session_start();
     if($_SESSION["iniciarsesion"]!="ok"){
-        header("location:../../index.php");
+        header("location:../index.php");
         }
 
 $sql="SELECT id,nombre,apellidoPaterno,apellidoMaterno,sede,fechaCurso,factura,proveedor,fechaCompra FROM registro_facturas";

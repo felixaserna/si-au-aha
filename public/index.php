@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SESSION["iniciarsesion"]!="ok"){
-        header("location:../../index.php");
+        header("location:../index.php");
         }
     // Esto le dice a PHP que usaremos cadenas UTF-8 hasta el final
     mb_internal_encoding('UTF-8');
@@ -11,7 +11,7 @@
 
     header("Content-Type: text/html;charset=utf-8");
 
-    include_once '../../config/config.php';
+    include_once '../config/config.php';
 
     $sql = "SELECT * FROM registro_facturas";
 
@@ -41,7 +41,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
 
-    <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css" />
 </head>
@@ -238,9 +238,9 @@
         </div>
     </section>
     
-    <script src="../../dist/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="../../dist/js/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../dist/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../dist/js/popper.min.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.js"></script>
 </body>
