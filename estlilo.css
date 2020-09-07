@@ -107,7 +107,7 @@
 }
 
 body {
-    background: #002184;
+    background: #002184 !important;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

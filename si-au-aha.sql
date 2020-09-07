@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2020 a las 03:23:56
+-- Tiempo de generación: 07-09-2020 a las 19:51:23
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.2.12
 
@@ -30,15 +30,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `registro_facturas` (
   `id` int(11) NOT NULL,
-  `nombre` text COLLATE utf8_unicode_ci NOT NULL,
-  `apellidoPaterno` text COLLATE utf8_unicode_ci NOT NULL,
-  `apellidoMaterno` text COLLATE utf8_unicode_ci NOT NULL,
-  `sede` text COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `apellidoPaterno` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `apellidoMaterno` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `sede` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fechaCurso` date NOT NULL,
-  `proveedor` text COLLATE utf8_unicode_ci NOT NULL,
+  `factura` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `proveedor` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fechaCompra` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuariosdb`
+--
 
 CREATE TABLE `usuariosdb` (
   `id` int(11) NOT NULL,
@@ -48,20 +54,15 @@ CREATE TABLE `usuariosdb` (
   `usuario` varchar(200) NOT NULL,
   `password` varchar(25) NOT NULL,
   `nomsitio` varchar(255) NOT NULL,
-  `telefono` varchar(15) NOT NULL
+  `telefono` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
 --
--- Volcado de datos para la tabla `registro_facturas`
+-- Volcado de datos para la tabla `usuariosdb`
 --
 
-INSERT INTO `registro_facturas` (`id`, `nombre`, `apellidoPaterno`, `apellidoMaterno`, `sede`, `fechaCurso`, `proveedor`, `fechaCompra`) VALUES
-(1, 'MARIA', 'CORDOVA', 'MIÃ‘ON', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07'),
-(2, 'MAGALI ELIZABETH', 'ROSAS', 'PACHECO', 'CCCAMP Xalapa', '2019-11-03', 'WorlPoin', '2019-11-07'),
-(3, 'CIRENIA GUADALUPE', 'FLORES', 'RUIZ', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07'),
-(4, 'MARIA DE LOURDES', 'CORDOBA', 'MAVIL', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07'),
-(5, 'CESAR ALEJANDRO', 'MARTINEZ', 'LOPEZ', 'CCCAMP Xalapa', '2019-11-30', 'WorlPoin', '2019-11-07');
+INSERT INTO `usuariosdb` (`id`, `nombre`, `apellidop`, `apellidom`, `usuario`, `password`, `nomsitio`, `telefono`) VALUES
+(1, 'FÃ©lix Antonio', 'Serna', 'Olguin', 'admin', 'admin123', 'Grupo Aspec Prehospital', '2731256673');
 
 --
 -- Índices para tablas volcadas
@@ -74,17 +75,8 @@ ALTER TABLE `registro_facturas`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Indices de la tabla `usuariosdb`
 --
-
---
--- AUTO_INCREMENT de la tabla `registro_facturas`
---
-ALTER TABLE `registro_facturas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-COMMIT;
-
-
 ALTER TABLE `usuariosdb`
   ADD PRIMARY KEY (`id`);
 
@@ -93,15 +85,17 @@ ALTER TABLE `usuariosdb`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `registro_facturas`
+--
+ALTER TABLE `registro_facturas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuariosdb`
 --
 ALTER TABLE `usuariosdb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
-
-
-
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

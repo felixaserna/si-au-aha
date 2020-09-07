@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio de sesión</title>
-  <link rel="stylesheet" href="estlilo.css">
+  <link rel="stylesheet" href="css/estlilo.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -50,7 +50,7 @@ if(buscarRepetido($usuario,$conexion)==1){
 
 }else{
 
-  $sql = "INSERT INTO usuariosdb (nombre,apellidop,apellidom,usuario, password,nomsitio,telefono) VALUES ('$_POST[nombre]','$_POST[usuario]','$_POST[apellidop]','$_POST[apellidom]','$_POST[password]','$_POST[nomsit]','$_POST[telefono]')";
+  $sql = "INSERT INTO usuariosdb (nombre, apellidop, apellidom, usuario, password, nomsitio, telefono) VALUES ('$_POST[nombre]','$_POST[apellidop]','$_POST[apellidom]','$_POST[usuario]','$_POST[password]','$_POST[nomsit]','$_POST[telefono]')";
 
 
   if (mysqli_query($conexion, $sql)) {

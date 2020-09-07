@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio de sesión</title>
-  <link rel="stylesheet" href="estlilo.css">
+  <link rel="stylesheet" href="css/estlilo.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.8.0/sweetalert2.min.css" rel="stylesheet" />
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.css"/>
    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -26,7 +26,7 @@
 
       <input type="text" name="usuario" placeholder="Usuario" required>
         <br>
-        <input type="text" name="password" placeholder="Password" required>
+        <input type="password" name="password" placeholder="Password" required>
         <br>
 
         <input type="text" name="nomsit" placeholder="Nombre del Sitio" required>
